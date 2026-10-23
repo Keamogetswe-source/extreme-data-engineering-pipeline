@@ -19,6 +19,11 @@ def validate_weather(weather):
 
     return current
 
+
+def transform_weather(current):
+
+    return {"time":current["time"], "temperature_2m":current["temperature_2m"], "relative_humidity_2m":current["relative_humidity_2m"]}
+
 if __name__ == "__main__":
     from ingest import fetch_weather
 
@@ -27,3 +32,7 @@ if __name__ == "__main__":
 
     print("Weather data validated successfully!")
     print(current)
+
+    cleaned = transform_weather(current)
+    print("Cleaned wether data:", cleaned)
+    
